@@ -9,6 +9,7 @@ some problems without well supported fonts. If you hope to find a theme more
 simple (such as using ascii-only prompt in a remote server), I recommend
 the [ys][].
 
+
 Installation
 ------------
 
@@ -27,6 +28,12 @@ It's easy to upgrade this theme with git:
     cd $HOME/.oh-my-zsh-themes/seeker
     git pull origin master
     cd -
+
+
+Preview
+=======
+
+![preview of the seeker theme](https://bit.ly/13P1hde)
 
 
 [ys]: https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#ys
