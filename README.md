@@ -33,7 +33,7 @@ It's easy to upgrade this theme with git:
 Preview
 =======
 
-![preview of the seeker theme](https://bit.ly/13P1hde)
+![preview of the seeker theme](https://raw.github.com/tonyseek/oh-my-zsh-seeker-theme/gh-assets/preview.png)
 
 
 [ys]: https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#ys
