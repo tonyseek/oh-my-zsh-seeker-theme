@@ -1,3 +1,11 @@
+function _virtualenv_prompt_info {
+    [[ -n $(whence virtualenv_prompt_info) ]] && virtualenv_prompt_info
+}
+
+function _git_prompt_info {
+    [[ -n $(whence git_prompt_info) ]] && git_prompt_info
+}
+
 PROMPT=' %{$fg_bold[green]%}%n@%M:%{$fg[cyan]%}%~ %{$fg_bold[blue]%}$(virtualenv_prompt_info)$(git_prompt_info)%{$fg_bold[blue]%}% 
  %{$fg_bold[red]%}$ %{$reset_color%}'
 
