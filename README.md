@@ -23,6 +23,8 @@ You can install this plugin by cloning and creating a symbol link:
 
 And edit your `.zshrc`.
 
+    ZSH_THEME = seeker
+
 It's easy to upgrade this theme with git:
 
     cd $HOME/.oh-my-zsh-themes/seeker
