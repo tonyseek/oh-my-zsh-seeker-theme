@@ -10,8 +10,11 @@ function _hg_prompt_info {
     [[ -n $(whence hg_prompt_info) ]] && hg_prompt_info
 }
 
+PYENV_PROMPT_DEFAULT_VERSION=${PYENV_PROMPT_DEFAULT_VERSION:="system"}
+
 function _pyenv_prompt_info {
-    [[ -n $(whence pyenv_prompt_info) ]] && [[ "$(pyenv_prompt_info)" != "system" ]] && \
+    [[ -n $(whence pyenv_prompt_info) ]] && \
+        [[ "$(pyenv_prompt_info)" != "${PYENV_PROMPT_DEFAULT_VERSION}" ]] && \
         echo "${ZSH_THEME_PYENV_PROMPT_PREFIX}$(pyenv_prompt_info)${ZSH_THEME_PYENV_PROMPT_SUFFIX}"
 }
 
