@@ -13,7 +13,15 @@ the [ys][].
 Installation
 ------------
 
-You can install this plugin by cloning and creating a symbol link:
+The quickly way:
+
+    curl -L https://raw.github.com/tonyseek/oh-my-zsh-seeker-theme/master/install.sh | sh
+
+Or:
+
+    wget https://raw.github.com/tonyseek/oh-my-zsh-seeker-theme/master/install.sh -O - | sh
+
+Or you can cloning and creating a symbol link by yourself:
 
     repo="git://github.com/tonyseek/oh-my-zsh-seeker-theme.git"
     target="$HOME/.oh-my-zsh-themes/seeker"
