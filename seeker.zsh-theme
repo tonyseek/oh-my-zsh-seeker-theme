@@ -18,7 +18,15 @@ function _pyenv_prompt_info {
         echo "${ZSH_THEME_PYENV_PROMPT_PREFIX}$(pyenv_prompt_info)${ZSH_THEME_PYENV_PROMPT_SUFFIX}"
 }
 
-PROMPT='╭ %{$fg_bold[red]%}➜ %{$fg_bold[green]%}%n@%M:%{$fg[cyan]%}%~ %{$fg_bold[blue]%}$(_virtualenv_prompt_info)$(_pyenv_prompt_info)$(_git_prompt_info)$(_hg_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}
+function _docker_prompt_info {
+    if [[ -z "${DOCKER_PROMPT_INFO}" ]] && [[ -n "${DOCKER_HOST}" ]]; then
+        DOCKER_PROMPT_INFO=${DOCKER_HOST:6}
+    fi
+    [[ -n "${DOCKER_PROMPT_INFO}" ]] && \
+        echo "${ZSH_THEME_DOCKER_PROMPT_PREFIX}${DOCKER_PROMPT_INFO}${ZSH_THEME_DOCKER_PROMPT_SUFFIX}"
+}
+
+PROMPT='╭ %{$fg_bold[red]%}➜ %{$fg_bold[green]%}%n@%M:%{$fg[cyan]%}%~ %{$fg_bold[blue]%}$(_virtualenv_prompt_info)$(_pyenv_prompt_info)$(_docker_prompt_info)$(_git_prompt_info)$(_hg_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}
 ╰ ➤ '
 
 ZSH_THEME_HG_PROMPT_PREFIX="hg:‹%{$fg[red]%}"
@@ -36,3 +44,6 @@ ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX="%{$fg[blue]%}› "
 
 ZSH_THEME_PYENV_PROMPT_PREFIX="python:‹%{$fg[red]%}"
 ZSH_THEME_PYENV_PROMPT_SUFFIX="%{$fg[blue]%}› "
+
+ZSH_THEME_DOCKER_PROMPT_PREFIX="docker:‹%{$fg[red]%}"
+ZSH_THEME_DOCKER_PROMPT_SUFFIX="%{$fg[blue]%}› "
