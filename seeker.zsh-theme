@@ -2,7 +2,7 @@ function _virtualenv_prompt_info {
     if [[ -n "$(whence virtualenv_prompt_info)" ]]; then
         if [ -n "$(whence pyenv_prompt_info)" ]; then
             if [ "$1" = "inline" ]; then
-                ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX="::"
+                ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX=%{$fg[blue]%}"::%{$fg[red]%}"
                 ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX=""
                 virtualenv_prompt_info
             fi
