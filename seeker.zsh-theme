@@ -1,5 +1,15 @@
 function _virtualenv_prompt_info {
-    [[ -n $(whence virtualenv_prompt_info) ]] && virtualenv_prompt_info
+    if [[ -n "$(whence virtualenv_prompt_info)" ]]; then
+        if [ -n "$(whence pyenv_prompt_info)" ]; then
+            if [ "$1" = "inline" ]; then
+                ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX="::"
+                ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX=""
+                virtualenv_prompt_info
+            fi
+        else
+            virtualenv_prompt_info
+        fi
+    fi
 }
 
 function _git_prompt_info {
@@ -15,7 +25,7 @@ PYENV_PROMPT_DEFAULT_VERSION=${PYENV_PROMPT_DEFAULT_VERSION:="system"}
 function _pyenv_prompt_info {
     [[ -n $(whence pyenv_prompt_info) ]] && \
         [[ "$(pyenv_prompt_info)" != "${PYENV_PROMPT_DEFAULT_VERSION}" ]] && \
-        echo "${ZSH_THEME_PYENV_PROMPT_PREFIX}$(pyenv_prompt_info)${ZSH_THEME_PYENV_PROMPT_SUFFIX}"
+        echo "${ZSH_THEME_PYENV_PROMPT_PREFIX}$(pyenv_prompt_info)$(_virtualenv_prompt_info inline)${ZSH_THEME_PYENV_PROMPT_SUFFIX}"
 }
 
 function _docker_prompt_info {
