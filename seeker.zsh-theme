@@ -6,7 +6,7 @@ function _virtualenv_prompt_info {
                 ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX=""
                 virtualenv_prompt_info
             fi
-            [ -n "$(pyenv_prompt_info)" ] && virtualenv_prompt_info
+            [ -z "$(pyenv_prompt_info)" ] && virtualenv_prompt_info
         else
             virtualenv_prompt_info
         fi
