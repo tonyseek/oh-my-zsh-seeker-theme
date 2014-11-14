@@ -24,9 +24,12 @@ function _hg_prompt_info {
 PYENV_PROMPT_DEFAULT_VERSION=${PYENV_PROMPT_DEFAULT_VERSION:="system"}
 
 function _pyenv_prompt_info {
-    [[ -n $(whence pyenv_prompt_info) ]] && \
-        [[ "$(pyenv_prompt_info)" != "${PYENV_PROMPT_DEFAULT_VERSION}" ]] && \
-        echo "${ZSH_THEME_PYENV_PROMPT_PREFIX}$(pyenv_prompt_info)$(_virtualenv_prompt_info inline)${ZSH_THEME_PYENV_PROMPT_SUFFIX}"
+    if [ -n "$(whence pyenv_prompt_info)" ]; then
+        local _prompt_info="$(pyenv_prompt_info)"
+        if [ -n "$_prompt_info" ] && [ "$_prompt_info" != "${PYENV_PROMPT_DEFAULT_VERSION}" ]; then
+            echo "${ZSH_THEME_PYENV_PROMPT_PREFIX}$(pyenv_prompt_info)$(_virtualenv_prompt_info inline)${ZSH_THEME_PYENV_PROMPT_SUFFIX}"
+        fi
+    fi
 }
 
 function _docker_prompt_info {
