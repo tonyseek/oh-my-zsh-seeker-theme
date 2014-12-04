@@ -1,3 +1,5 @@
+PYENV_PROMPT_DEFAULT_VERSION=${PYENV_PROMPT_DEFAULT_VERSION:="system"}
+
 function _virtualenv_prompt_info {
     if [[ -n "$(whence virtualenv_prompt_info)" ]]; then
         if [ -n "$(whence pyenv_prompt_info)" ]; then
@@ -6,7 +8,7 @@ function _virtualenv_prompt_info {
                 ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX=""
                 virtualenv_prompt_info
             fi
-            [ -z "$(pyenv_prompt_info)" ] && virtualenv_prompt_info
+            [ "$(pyenv_prompt_info)" = "${PYENV_PROMPT_DEFAULT_VERSION}" ] && virtualenv_prompt_info
         else
             virtualenv_prompt_info
         fi
@@ -20,8 +22,6 @@ function _git_prompt_info {
 function _hg_prompt_info {
     [[ -n $(whence hg_prompt_info) ]] && hg_prompt_info
 }
-
-PYENV_PROMPT_DEFAULT_VERSION=${PYENV_PROMPT_DEFAULT_VERSION:="system"}
 
 function _pyenv_prompt_info {
     if [ -n "$(whence pyenv_prompt_info)" ]; then
