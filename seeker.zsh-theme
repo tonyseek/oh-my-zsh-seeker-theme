@@ -34,7 +34,7 @@ function _pyenv_prompt_info {
 
 function _docker_prompt_info {
     if [[ -z "${DOCKER_PROMPT_INFO}" ]] && [[ -n "${DOCKER_HOST}" ]]; then
-        DOCKER_PROMPT_INFO=${DOCKER_HOST:6}
+        DOCKER_PROMPT_INFO=${DOCKER_HOST/tcp:\/\//}
     fi
     [[ -n "${DOCKER_PROMPT_INFO}" ]] && \
         echo "${ZSH_THEME_DOCKER_PROMPT_PREFIX}${DOCKER_PROMPT_INFO}${ZSH_THEME_DOCKER_PROMPT_SUFFIX}"
