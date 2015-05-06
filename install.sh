@@ -2,17 +2,18 @@
 
 set -e
 
-repo="https://github.com/tonyseek/oh-my-zsh-seeker-theme.git"
-target="$ZSH_CUSTOM/themes/seeker"
+_ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+SRC_URL="https://github.com/tonyseek/oh-my-zsh-seeker-theme.git"
+DST_DIR="${ZSH_CUSTOM:-${_ZSH_CUSTOM}}/themes/seeker"
 
-mkdir -p `dirname $target`
+mkdir -p `dirname ${DST_DIR}`
 
-if [ -d "$target" ]; then
-    if [ -d "$target/.git" ]; then
-        (cd $target && git pull --ff-only origin master)
+if [ -d "${DST_DIR}" ]; then
+    if [ -d "${DST_DIR}/.git" ]; then
+        (cd ${DST_DIR} && git pull --ff-only origin master)
     fi
 else
-    git clone $repo $target
+    git clone ${SRC_URL} ${DST_DIR}
 fi
 
-ln -sf $target/*.zsh-theme $ZSH_CUSTOM/themes
+ln -sf ${DST_DIR}/*.zsh-theme ${ZSH_CUSTOM:-${_ZSH_CUSTOM}}/themes
