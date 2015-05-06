@@ -23,11 +23,9 @@ Or:
 
 Or you can cloning and creating a symbol link by yourself:
 
-    repo="git://github.com/tonyseek/oh-my-zsh-seeker-theme.git"
-    target="$HOME/.oh-my-zsh-themes/seeker"
-
-    git clone $repo $target
-    ln -s $target/seeker.zsh-theme $HOME/.oh-my-zsh/themes/seeker.zsh-theme
+    mkdir -p $HOME/.oh-my-zsh/custom/themes
+    cd $HOME/.oh-my-zsh/custom/themes
+    git clone git://github.com/tonyseek/oh-my-zsh-seeker-theme.git seeker
 
 And edit your `.zshrc`.
 
@@ -35,13 +33,12 @@ And edit your `.zshrc`.
 
 It's easy to upgrade this theme with git:
 
-    cd $HOME/.oh-my-zsh-themes/seeker
-    git pull origin master
-    cd -
+    cd $HOME/.oh-my-zsh/custom/themes/seeker
+    git pull --ff-only origin master
 
 
-Preview
-=======
+Screenshot
+==========
 
 ![preview of the seeker theme](https://raw.github.com/tonyseek/oh-my-zsh-seeker-theme/gh-assets/preview.png)
 
