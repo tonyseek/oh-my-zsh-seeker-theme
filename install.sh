@@ -2,8 +2,8 @@
 
 set -e
 
-repo="git://github.com/tonyseek/oh-my-zsh-seeker-theme.git"
-target="$HOME/.oh-my-zsh/custom/themes/seeker"
+repo="https://github.com/tonyseek/oh-my-zsh-seeker-theme.git"
+target="$ZSH_CUSTOM/themes/seeker"
 
 mkdir -p `dirname $target`
 
@@ -14,3 +14,5 @@ if [ -d "$target" ]; then
 else
     git clone $repo $target
 fi
+
+ln -sf $target/*.zsh-theme $ZSH_CUSTOM/themes

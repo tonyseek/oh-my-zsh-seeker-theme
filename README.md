@@ -15,17 +15,18 @@ Installation
 
 The quickly way:
 
-    curl -L https://raw.github.com/tonyseek/oh-my-zsh-seeker-theme/master/install.sh | sh
+    curl -L https://raw.github.com/tonyseek/oh-my-zsh-seeker-theme/master/install.sh | zsh
 
 Or:
 
-    wget https://raw.github.com/tonyseek/oh-my-zsh-seeker-theme/master/install.sh -O - | sh
+    wget https://raw.github.com/tonyseek/oh-my-zsh-seeker-theme/master/install.sh -O - | zsh
 
 Or you can cloning and creating a symbol link by yourself:
 
-    mkdir -p $HOME/.oh-my-zsh/custom/themes
-    cd $HOME/.oh-my-zsh/custom/themes
+    mkdir -p $ZSH_CUSTOM/themes
+    cd $ZSH_CUSTOM/themes
     git clone git://github.com/tonyseek/oh-my-zsh-seeker-theme.git seeker
+    ln -s seeker/*.zsh-theme .
 
 And edit your `.zshrc`.
 
