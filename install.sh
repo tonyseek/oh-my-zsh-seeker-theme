@@ -14,6 +14,3 @@ if [ -d "$target" ]; then
 else
     git clone $repo $target
 fi
-
-ln -sf $target/seeker.zsh-theme $HOME/.oh-my-zsh/themes/seeker.zsh-theme
-ln -sf $target/seeker-tiny.zsh-theme $HOME/.oh-my-zsh/themes/seeker-tiny.zsh-theme
