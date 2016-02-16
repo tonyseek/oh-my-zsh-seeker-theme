@@ -13,24 +13,14 @@ the [ys][].
 Installation
 ------------
 
-The quickly way:
+I recommend to use [antigen][] for installing this theme:
 
-    curl -L https://raw.github.com/tonyseek/oh-my-zsh-seeker-theme/master/install.sh | zsh
+    # $HOME/.zshrc
+    source /usr/local/share/antigen.zsh
 
-Or:
-
-    wget https://raw.github.com/tonyseek/oh-my-zsh-seeker-theme/master/install.sh -O - | zsh
-
-Or you can cloning and creating a symbol link by yourself:
-
-    mkdir -p $ZSH_CUSTOM/themes
-    cd $ZSH_CUSTOM/themes
-    git clone git://github.com/tonyseek/oh-my-zsh-seeker-theme.git seeker
-    ln -s seeker/*.zsh-theme .
-
-And edit your `.zshrc`.
-
-    ZSH_THEME=seeker
+    antigen use oh-my-zsh
+    antigen theme tonyseek/oh-my-zsh-seeker-theme seeker
+    antigen apply
 
 It's easy to upgrade this theme with git:
 
@@ -45,3 +35,4 @@ Screenshot
 
 
 [ys]: https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#ys
+[antigen]: https://github.com/zsh-users/antigen
