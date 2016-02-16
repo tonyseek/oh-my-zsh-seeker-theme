@@ -33,11 +33,11 @@ function _pyenv_prompt_info {
 }
 
 function _docker_prompt_info {
-    if [[ -z "${DOCKER_PROMPT_INFO}" ]] && [[ -n "${DOCKER_HOST}" ]]; then
-        DOCKER_PROMPT_INFO=${DOCKER_HOST/tcp:\/\//}
-    fi
-    [[ -n "${DOCKER_PROMPT_INFO}" ]] && \
+    DOCKER_PROMPT_INFO="${DOCKER_PROMPT_INFO:-${DOCKER_MACHINE_NAME}}"
+    DOCKER_PROMPT_INFO="${DOCKER_PROMPT_INFO:-${DOCKER_HOST/tcp:\/\//}}"
+    if [ -n "${DOCKER_PROMPT_INFO}" ]; then
         echo "${ZSH_THEME_DOCKER_PROMPT_PREFIX}${DOCKER_PROMPT_INFO}${ZSH_THEME_DOCKER_PROMPT_SUFFIX}"
+    fi
 }
 
 PROMPT='╭ %{$fg_bold[red]%}➜ %{$fg_bold[green]%}%n@%M:%{$fg[cyan]%}%~ %{$fg_bold[blue]%}$(_virtualenv_prompt_info)$(_pyenv_prompt_info)$(_docker_prompt_info)$(_git_prompt_info)$(_hg_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}
