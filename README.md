@@ -22,11 +22,7 @@ I recommend to use [antigen][] for installing this theme:
     antigen theme tonyseek/oh-my-zsh-seeker-theme seeker
     antigen apply
 
-It's easy to upgrade this theme with git:
-
-    cd $HOME/.oh-my-zsh/custom/themes/seeker
-    git pull --ff-only origin master
-
+It could be upgraded by `antigen update` command.
 
 Screenshot
 ==========
